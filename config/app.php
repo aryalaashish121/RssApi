@@ -56,6 +56,9 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    /*api key for response */
+    'api_key'=>env('API_KEY','9d97b471-ee1c-473a-b293-7998a92c4182'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
