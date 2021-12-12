@@ -113,6 +113,12 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        "apilog"=>[
+            'driver'=>'single',
+            'path'=>storage_path('logs/apilog.log'),
+            'level'=>'debug'
+        ],
     ],
 
 ];

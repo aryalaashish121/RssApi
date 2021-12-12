@@ -6,19 +6,18 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class CheckUrlTest extends TestCase
+class FetchDataFromRemoteAptTest extends TestCase
 {
     /**
      * A basic feature test example.
      *
      * @return void
      */
-    /** @test*/
-    public function a_url_provided_must_be_in_lower_case()
+
+    /**  @test */
+    public function an_array_data_shoud_be_fetched_from_api()
     {
-        $data = "sections";
-        $response = $this->get('/api/'.$data);
-        $response->assertStatus(200);
-        
+        $response = $this->get('/api/lifeandstyles');
+        $response->assertOk();
     }
 }
