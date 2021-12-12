@@ -23,6 +23,11 @@ class checkUrl
                 "error"=>"Url Can only be in lower case!"
             ],406);
         }
+        // if(preg_match('/[^\s\p{Pd}a-zA-ZÀ-ÿ]/', $path)){
+        //     return response()->json([
+        //         "error"=>"Url Can only only have hyphen!"
+        //     ],406);
+        // }
         return $next($request);
     }
 }
