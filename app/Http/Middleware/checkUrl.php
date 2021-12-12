@@ -20,7 +20,7 @@ class checkUrl
         $path = $request->path();
         $pathLowercase = strtolower($path);
         if ($path !== $pathLowercase) {
-            Log::channel('apilog')->warning("User try to hit with invaild url " . $path);
+            Log::channel('apilog')->warning("User try to hit with invaild url ->" . $path);
             return response()->json([
                 "error" => "Url Can only be in lower case!"
             ], 406);

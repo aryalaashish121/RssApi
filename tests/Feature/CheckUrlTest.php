@@ -14,11 +14,13 @@ class CheckUrlTest extends TestCase
      * @return void
      */
     /** @test*/
-    public function a_url_provided_must_be_in_lower_case()
+    public function url_provided_must_be_in_lower_case()
     {
         $data = "sections";
         $response = $this->get('/api/'.$data);
         $response->assertStatus(200);
         
     }
+
+   
 }

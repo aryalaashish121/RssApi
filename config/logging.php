@@ -3,7 +3,7 @@
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
-
+use App\Logging\LogFormatter;
 return [
 
     /*
@@ -116,6 +116,7 @@ return [
 
         "apilog"=>[
             'driver'=>'single',
+            'tap'=>[LogFormatter::class],
             'path'=>storage_path('logs/apilog.log'),
             'level'=>'debug'
         ],
