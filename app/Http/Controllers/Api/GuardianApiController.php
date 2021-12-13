@@ -18,7 +18,14 @@ class GuardianApiController extends Controller
         $section = $request->section;
 
         $data = $this->getData($category, $section);
-        return $data;
+
+        if ($data['response']['status'] == "error") {
+            return $this->sendErrorResponse();
+        }
+        return response()->view('xml', compact('data'))->withHeaders([
+            'Content-Type' => 'application/xml',
+            'charset' => 'utf-8'
+        ]);
     }
 
     protected function getData($category, $section)
@@ -30,9 +37,15 @@ class GuardianApiController extends Controller
                 'q' => $section,
             ]);
             Cache::add($category, json_decode($response, true), 600);
-
-            return json_decode($response);
         }
         return Cache::get($category);
+    }
+
+    private function sendErrorResponse()
+    {
+        return response()->json([
+            "status" => "error",
+            "message" => "Requested resource not found"
+        ], 400);
     }
 }
