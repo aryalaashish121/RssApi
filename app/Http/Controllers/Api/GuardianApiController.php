@@ -16,10 +16,9 @@ class GuardianApiController extends Controller
         //accepting json request
         $format = $request->format;
         $section = $request->section;
-
         $data = $this->getData($category, $section);
 
-        if ($data['response']['status'] == "error") {
+        if ($data['response']['status'] != "ok") {
             return $this->sendErrorResponse();
         }
         return response()->view('xml', compact('data'))->withHeaders([

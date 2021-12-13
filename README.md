@@ -17,7 +17,7 @@ Postman is prefered for testing Api end point
 
 end points
 
-1. localhost:8000/api/<category_name>
+1. localhost:8000/<category_name>
 This end point will list all the articles under category
 
 
