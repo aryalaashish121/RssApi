@@ -19,8 +19,8 @@ end points
 
 1. localhost:8000/<category_name>
 This end point will list all the articles under category
-
-
+- in json request user can pass query like {"content":"Business"}
+- response support both format json/xml {"format":"json"}
 #### accepted json format data in get request
 - content
 

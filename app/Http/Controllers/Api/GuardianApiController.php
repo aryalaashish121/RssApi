@@ -21,6 +21,9 @@ class GuardianApiController extends Controller
         if ($data['response']['status'] != "ok") {
             return $this->sendErrorResponse();
         }
+        if ($format == "json") {
+            return $data;
+        }
         return response()->view('xml', compact('data'))->withHeaders([
             'Content-Type' => 'application/xml',
             'charset' => 'utf-8'
